@@ -15,14 +15,14 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 
 @Component
 export default class SvgIcon extends Vue {
-  @Prop({ type: String, required: true }) iconClass: string
+  @Prop({ type: String, required: true }) name: string
   @Prop({ type: String, default: '' }) className: string
 
   get isExternal() {
-    return /^(https?:|mailto:|tel:)/.test(this.iconClass)
+    return /^(https?:|mailto:|tel:)/.test(this.name)
   }
   get iconName() {
-    return `#icon-${this.iconClass}`
+    return `#icon-${this.name}`
   }
   get svgClass() {
     if (this.className) {
@@ -33,8 +33,8 @@ export default class SvgIcon extends Vue {
   }
   get styleExternalIcon() {
     return {
-      mask: `url(${this.iconClass}) no-repeat 50% 50%`,
-      '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`
+      mask: `url(${this.name}) no-repeat 50% 50%`,
+      '-webkit-mask': `url(${this.name}) no-repeat 50% 50%`
     }
   }
 }

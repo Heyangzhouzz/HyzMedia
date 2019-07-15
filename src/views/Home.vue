@@ -1,5 +1,7 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <svg-icon name="404"></svg-icon>
+  </div>
 </template>
 
 <script lang="ts">
